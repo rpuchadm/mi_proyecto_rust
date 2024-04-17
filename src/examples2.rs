@@ -23,10 +23,7 @@ pub fn examples2() {
     println!("El mayor es {} y el menor es {}", max, min);
 
     println!("\n\nmuestra la suma de los enteros del vector");
-    let mut sum = 0;
-    for i in vec.iter() {
-        sum += i;
-    }
+    let sum = fun_sum(&vec);
     println!("La suma es {}", sum);
 
     println!("\n\nmuestra la media de los enteros del vector");
@@ -59,6 +56,14 @@ pub fn examples2() {
     println!("{}", i);
 }
 
+}
+
+fn fun_sum(vec: &Vec<i32>) -> i32 {
+    let mut sum = 0;
+    for i in vec.iter() {
+        sum += i;
+    }
+    sum
 }
 
 fn fun_decl(num: i32, mut rng: rand::prelude::ThreadRng) -> Vec<i32> {
