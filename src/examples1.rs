@@ -9,8 +9,10 @@ pub fn examples1() {
     fun_maxmin(arr);
 
     let sum = fun_sum(arr);
+    println!("La suma es {}", sum);
 
-    fun_avg(sum, arr);
+    let avg= fun_avg(sum, arr);
+    println!("La media es {}", avg);
 
     fun_sortasc(&mut arr);
 
@@ -33,10 +35,10 @@ fn fun_sortasc(arr: &mut [i32; 5]) {
     }
 }
 
-fn fun_avg(sum: i32, arr: [i32; 5]) {
+fn fun_avg(sum: i32, arr: [i32; 5]) -> f64 {
     println!("\n\nmuestra la media de los enteros del array");
     let avg = sum as f64 / arr.len() as f64;
-    println!("La media es {}", avg);
+    avg
 }
 
 fn fun_sum(arr: [i32; 5]) -> i32 {
@@ -45,7 +47,6 @@ fn fun_sum(arr: [i32; 5]) -> i32 {
     for i in arr.iter() {
         sum += i;
     }
-    println!("La suma es {}", sum);
     sum
 }
 
@@ -75,4 +76,4 @@ fn fun_decl() -> [i32; 5] {
         println!("{}", i);
     }
     arr
-    }
+}
