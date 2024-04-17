@@ -4,18 +4,10 @@ use rand::Rng;
 pub fn examples2() {
     let mut rng = rand::thread_rng();
 
-    println!("\n\ncalcula un número aleatorio entre 8 y 16");
-    let num = rng.gen_range(8..17);
+    let num = fun_numale(&mut rng);
     println!("El número es {}", num);
 
-    println!("\n\ndeclara un vector con num como longitud y asigna valores aleatorios entre 1 y 100");
-    let mut vec = Vec::new();
-    for _ in 0..num {
-        vec.push(rng.gen_range(1..101));
-    }
-    for i in vec.iter() {
-        println!("{}", i);
-    }
+    let mut vec = fun_decl(num, rng);
 
     println!("\n\nmuestra el mayor y el menor de los enteros del vector");
     let mut max = vec[0];
@@ -64,7 +56,25 @@ pub fn examples2() {
     let mut vec3 = vec.iter().cloned().collect::<Vec<i32>>();
     vec3.sort_by(|a, b| b.cmp(a));
     for i in vec3.iter() {
-        println!("{}", i);
-    }
+    println!("{}", i);
+}
 
 }
+
+fn fun_decl(num: i32, mut rng: rand::prelude::ThreadRng) -> Vec<i32> {
+    println!("\n\ndeclara un vector con num como longitud y asigna valores aleatorios entre 1 y 100");
+    let mut vec = Vec::new();
+    for _ in 0..num {
+        vec.push(rng.gen_range(1..101));
+    }
+    for i in vec.iter() {
+        println!("{}", i);
+    }
+    vec
+}
+
+fn fun_numale(rng: &mut rand::prelude::ThreadRng) -> i32 {
+    println!("\n\ncalcula un número aleatorio entre 8 y 16");
+    let num = rng.gen_range(8..17);
+    num
+    }
