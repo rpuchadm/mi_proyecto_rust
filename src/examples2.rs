@@ -44,8 +44,8 @@ pub fn examples2() {
     let mut vec3 = vec.iter().cloned().collect::<Vec<i32>>();
     vec3.sort_by(|a, b| b.cmp(a));
     for i in vec3.iter() {
-    println!("{}", i);
-}
+        println!("{}", i);
+    }
 
 }
 
