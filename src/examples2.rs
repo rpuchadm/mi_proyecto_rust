@@ -10,16 +10,7 @@ pub fn examples2() {
     let mut vec = fun_decl(num, rng);
 
     println!("\n\nmuestra el mayor y el menor de los enteros del vector");
-    let mut max = vec[0];
-    let mut min = vec[0];
-    for i in 1..vec.len() {
-        if vec[i] > max {
-            max = vec[i];
-        }
-        if vec[i] < min {
-            min = vec[i];
-        }
-    }
+    let (max, min) = fun_name(&vec);
     println!("El mayor es {} y el menor es {}", max, min);
 
     println!("\n\nmuestra la suma de los enteros del vector");
@@ -58,6 +49,20 @@ pub fn examples2() {
 
 }
 
+fn fun_name(vec: &Vec<i32>) -> (i32, i32) {
+    let mut max = vec[0];
+    let mut min = vec[0];
+    for i in 1..vec.len() {
+        if vec[i] > max {
+            max = vec[i];
+        }
+        if vec[i] < min {
+            min = vec[i];
+        }
+    }
+    (max, min)
+}
+
 fn fun_sum(vec: &Vec<i32>) -> i32 {
     let mut sum = 0;
     for i in vec.iter() {
@@ -82,4 +87,4 @@ fn fun_numale(rng: &mut rand::prelude::ThreadRng) -> i32 {
     println!("\n\ncalcula un número aleatorio entre 8 y 16");
     let num = rng.gen_range(8..17);
     num
-    }
+}
